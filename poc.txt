@@ -1,0 +1,1960 @@
+root@clumsy:~/xbox/$SystemUpdate# dd if=dash.xex of=dash_pe.bin bs=1 skip=32768
+15847424+0 records in
+15847424+0 records out
+15847424 bytes (16 MB, 15 MiB) copied, 31.3635 s, 505 kB/s
+root@clumsy:~/xbox/$SystemUpdate# powerpc-linux-gnu-objdump -D -b binary -m powerpc dash_pe.bin > dash_real.asm;
+root@clumsy:~/xbox/$SystemUpdate# head dash_real.asm
+
+dash_pe.bin:     file format binary
+
+
+Disassembly of section .data:
+
+00000000 <.data>:
+       0:   00 6b 00 65    oris    r0,r8,27392
+       4:   00 79 00 3a    li      r16,30976
+       8:   00 2f 00 2f    cmpwi   cr6,r0,12032
+root@clumsy:~/xbox/$SystemUpdate# grep -oba $'\x94\x21' dash.xex | head
+564000:�!
+564002:�!
+762430:�!
+801688:�!
+801690:�!
+848062:�!
+934301:�!
+1585224:�!
+1585464:�!
+1585584:�!
+root@clumsy:~/xbox/$SystemUpdate# dd if=dash.xex of=dash_code.bin bs=1 skip=1048576
+
+14831616+0 records in
+14831616+0 records out
+14831616 bytes (15 MB, 14 MiB) copied, 28.4516 s, 521 kB/s
+root@clumsy:~/xbox/$SystemUpdate#
+root@clumsy:~/xbox/$SystemUpdate# strings dash.xex | grep -Ei "xam|live|signin"
+signinpr
+xam.xex
+{LiveHive:LiveServiceUrl.roamingprofile}/users/xuid({xuid})/devices
+body{t:item,offset:0,size:2870,loc:body}[?{t:item,offset:0,size:2870,loc:dom}[source{t:hrfacility,offset:0,size:4,loc:dom},code{t:hrcode,offset:0,size:4,loc:dom},pagingInfo/continuationToken{t:str,offset:8,size:42,loc:dom,max:42,opt:4},userDeviceAssociations{t:item,offset:54,size:2816,loc:dom,max:64,itemsize:44,countoffset:50,countsize:4}[machinePuid{t:uint,offset:0,size:8,loc:dom},trustLevel{t:int,offset:8,size:4,loc:dom},lastSignIn{t:datetime,offset:12,size:16,loc:dom},lastSignOut{t:datetime,offset:28,size:16,loc:dom}]]]
+{LiveHive:LiveServiceUrl.roamingprofile}/users/xuid({xuid})/devices/{machinePuid}
+{LiveHive:LiveServiceUrl.roamingprofile}/users/xuid({xuid})/devices/{machinepuid}
+NuipBuildXamNuiFrameData
+xam.xex
+http://xboxlive.com
+{LiveHive:LiveServiceUrl.savedgames}/storage/users/xuid({xuid})/savedgames/files
+NSSIGNINTIME
+NSSIGNIN
+{LiveHive:LiveServiceUrl.savedgames}/storage/users/xuid({xuid})/savedgames/titles
+{LiveHive:LiveServiceUrl.savedgames}/storage/users/xuid({xuid})/savedgames
+{LiveHive:LiveServiceUrl.savedgames}/storage/users/xuid({xuid})/savedgames/titles/{titleId}
+{LiveHive:LiveServiceUrl.savedgames}/storage/users/xuid({xuid})/savedgames/titles/{titleId}/lock
+{LiveHive:LiveServiceUrl.savedgames}/storage/users/xuid({xuid})/savedgames/titles/{titleId}/metadata
+{LiveHive:LiveServiceUrl.savedgames}/storage/users/xuid({xuid})/savedgames/titles/{titleId}/files/{prefix}{filename}/lock
+{LiveHive:LiveServiceUrl.savedgames}/storage/users/xuid({xuid})/savedgames/titles/{titleId}/files/{prefix}{filename}
+{LiveHive:LiveServiceUrl.savedgames}/storage/users/xuid({xuid})/savedgames/titles/{titleId}/files
+hlive
+Xbox Live Client/2.0.17559.0
+XamShowSocialPostUI() Failure: dwStatus = 0x%08X
+xncsi.xboxlive.com
+LiveSignup
+tracert.xboxlive.com
+`Microsoft Corporation Xbox Live MTU Test
+Microsoft Corporation Xbox Live ICMP Test
+x1ds.xboxlive.com
+http://speedtest.xboxlive.com/speedtest/extraextralarge.txt
+networktest.xboxlive.com
+/xedl/LiveSignup/livesignup2.manifest
+/xedl/LiveSignup/livesignup%d.xex
+IDS_SIGNUP_LANDING_SIGNIN_VUI_PRON
+IDS_SIGNUP_LANDING_SIGNIN_VUI_DISPLAY_ALT
+IDS_SIGNUP_LANDING_SIGNIN_VUI_DISPLAY
+IDS_LIVE_CONNECT_VUI_PRON
+IDS_LIVE_CONNECT_VUI_DISPLAY_ALT
+IDS_LIVE_CONNECT_VUI_DISPLAY
+http://xboxlive.com
+EcLaunchLiveSignup
+EcConnectToLive
+EcoInLiveLocale
+EcoLiveTVProvider
+EcoConnectedToLive
+EcoLiveTier
+EsLiveTile
+From isolation / Deliver me o Xbox - / Through the ethernet
+{LiveHive:XboxMediaFeedbackUriRoot}/users/xuid({xuid})/feedback
+{LiveHive:XboxMediaRatingsUriRoot}/users/xuid({xuid})/ratings
+OnLiveConnectionChanged
+Dash.LiveSignup.LaunchLiveSignupWithWaitScene
+SignedInToLive
+KeepAlive
+e:\bt\1c10e6\core\private\flash\xam\dash\appmgr\luaprovidersafeinterop.cpp
+e:\bt\1c10e6\core\private\flash\xam\dash\appmgr\luapam.cpp
+SigninOnBoot
+Signin
+e:\bt\1c10e6\core\private\flash\xam\dash\appmgr\luadashprovider.cpp
+e:\bt\1c10e6\core\private\flash\xam\dash\appmgr\luatest.cpp
+e:\bt\1c10e6\core\private\flash\xam\dash\appmgr\luaproviderwrappers.cpp
+e:\bt\1c10e6\core\private\flash\xam\dash\appmgr\luadashapp.cpp
+e:\bt\1c10e6\core\private\flash\xam\dash\appmgr\luamarshaller.cpp
+e:\bt\1c10e6\core\private\flash\xam\dash\appmgr\builtinluaapps.cpp
+JoinXboxLive
+CompleteSignIn
+e:\bt\1c10e6\core\private\flash\xam\dash\apps\social\app\social.cpp
+livepack
+e:\bt\1c10e6\core\private\flash\xam\dash\apps\social\src\dashcachedtitleimage.h
+e:\bt\1c10e6\core\private\flash\xam\dash\apps\social\src\thememanagerapi.cpp
+ConnectToLive
+e:\bt\1c10e6\core\private\flash\xam\dash\apps\social\src\util.cpp
+WEBSERVICE_TASK_STS_XAM_TOKEN
+e:\bt\1c10e6\core\private\flash\xam\common\webservice\luawrapper\src\luawebservice.cpp
+e:\bt\1c10e6\core\private\flash\xam\common\webservice\luawrapper\src\luawebservicemarshaller.cpp
+Set-Cookie{t:str,offset:0,size:2048,loc:hdr,max:2048},body{t:item,offset:0,size:2248,loc:body}[?{t:item,offset:0,size:2248,loc:dom}[AccountState{t:item,offset:2048,size:12,loc:dom}[SignInErrorCode{t:uint,offset:0,size:4,loc:dom},AccountSuspended{t:bool,offset:4,size:4,loc:dom},SubscriptionLapsed{t:bool,offset:8,size:4,loc:dom}],AccountInfo{t:item,offset:2060,size:118,loc:dom}[ZuneTag{t:str,offset:0,size:16,loc:dom,max:16},Xuid{t:xuid,offset:16,size:8,loc:dom},Locale{t:str,offset:24,size:6,loc:dom,max:6},ParentallyControlled{t:bool,offset:30,size:4,loc:dom},ExplicitPrivilege{t:bool,offset:34,size:4,loc:dom},UserWriteID{t:str,offset:38,size:38,loc:dom,max:38},UserReadID{t:str,offset:76,size:38,loc:dom,max:38},UsageCollectionAllowed{t:bool,offset:114,size:4,loc:dom}],SubscriptionInfo{t:item,offset:2178,size:70,loc:dom}[SubscriptionOfferID{t:uint,offset:0,size:8,loc:dom},SubscriptionRenewalOfferID{t:uint,offset:8,size:8,loc:dom},SubscriptionEnabled{t:bool,offset:16,size:4,loc:dom},SubscriptionStartDate{t:str,offset:20,size:25,loc:dom,max:25},SubscriptionEndDate{t:str,offset:45,size:25,loc:dom,max:25}]]]
+{CommerceBase}/v2/account/signin
+ZXLSP1.0 XboxLiveId=%I64u
+e:\bt\1c10e6\core\private\flash\xam\dash\apps\arcade\src\luagamelibrary.cpp
+e:\bt\1c10e6\core\private\flash\xam\dash\apps\arcade\src\luagamelibraryenum.cpp
+e:\bt\1c10e6\core\private\flash\xam\dash\apps\arcade\src\luatitleinfo.cpp
+e:\bt\1c10e6\core\private\flash\xam\dash\apps\arcade\src\luaachievementinfo.cpp
+@e:\bt\1c10e6\core\private\flash\xam\dash\apps\arcade\src\lualeaderboardinfo.cpp
+Xe:\bt\1c10e6\core\private\flash\xam\dash\apps\arcade\src\luaimageinfo.cpp
+SigninSleepiesIndex
+e:\bt\1c10e6\core\private\flash\xam\dash\luaexports\src\content.cpp
+e:\bt\1c10e6\core\private\flash\xam\dash\luaexports\src\luavui.cpp
+e:\bt\1c10e6\core\private\flash\xam\dash\luaexports\src\luambrvideo.cpp
+e:\bt\1c10e6\core\private\flash\xam\dash\luaexports\src\luaxstsv3token.cpp
+https://xsts.auth.xboxlive.com
+http://auth.xboxlive.com
+msac.xboxlive.com
+https://user.auth.xboxlive.com
+e:\bt\1c10e6\core\private\flash\xam\dash\luaexports\src\xststokenconfigparams.h
+e:\bt\1c10e6\core\private\flash\xam\dash\luaexports\src\luadashevents.cpp
+LiveParentalRatingToXboxParentalRating
+IsLiveRegionSameAsConsole
+ConsoleRatingToLiveRating
+e:\bt\1c10e6\core\private\flash\xam\dash\luaexports\src\luamarketplacecommon.cpp
+XamUserContentRestrictionGetRating Failed!
+LaunchLiveSignup
+GetOfflineLiveLocale
+e:\bt\1c10e6\core\private\flash\xam\dash\luaexports\src\luaapputils.cpp
+Title.NewLiveSignup.xex
+e:\bt\1c10e6\core\private\flash\xam\dash\luaexports\src\luaimagecache.cpp
+e:\bt\1c10e6\core\private\flash\xam\dash\luaexports\src\luavuiblingprovider.cpp
+e:\bt\1c10e6\core\private\flash\xam\dash\luaexports\src\luavuiglobalhandler.cpp
+e:\bt\1c10e6\core\private\flash\xam\dash\luaexports\src\luaxststokenwait.cpp
+XamGetErrorStringFromWebService API failed.
+LastSigninElsewhere
+SignedInLIVE
+e:\bt\1c10e6\core\private\flash\corelibs\luaxbox\src\luauserxam.cpp
+XamGetUserAge failed
+XamGetUserAgeGroup failed
+LiveInviteAccepted
+LivePresenceChanged
+SigninChanged
+LiveMembershipPurchased
+IsConnectedToLive
+GetLiveHiveValue
+ShowSignIn
+LocalSignInOnly
+Unable to retrieve LiveHive value
+LiveHive key name must be specified
+LivePasscodeMode
+SetLivePasscode
+GetLivePasscode
+GetSigninState
+SigninState
+LiveEnabled
+XamUserReadProfileSettingsEx failed
+signinState
+isLiveRequest
+pam:Dash.MP.Purchase.lex:LaunchIE;userless;source=SignIn.PasswordError;scenario=PasswordReset;url=
+AllowLiveCreate
+AllowLiveAccess
+GetLiveCredentials
+GetLivePUID
+XAM_WEBINST_CUSTOM3
+XAM_WEBINST_CUSTOM2
+XAM_WEBINST_CUSTOM1
+XAM_WEBINST_BDEACTIONDESCR
+XAM_WEBINST_BDEACTIONNAME
+e:\bt\1c10e6\core.obj.fre\private\flash\xam\dash\main\src\obj\xbox\dash.pdb
+/liveinfo/getnetworkauthorizationlist.ashx
+/xsig/AcknowledgeLicensesDelivery.ashx
+/xuacs/XeCreateLiveAccount.ashx
+/liveinfo/GetLiveConfig.ashx
+)Descargando contenido de Xbox Live Arcade
+)Descargando contenido del Bazar Xbox Live
+,Sta scaricando contenuti da Xbox Live Arcade
+1Sta scaricando contenuti da Marketplace Xbox Live
+charger du contenu de Xbox Live Arcade
+ Xbox Live
+ Xbox Live Arcade
+ Xbox Live
+do do Xbox Live Arcade
+do do Mercado Xbox Live
+dt gerade Inhalte von Xbox Live Arcade
+dt gerade Inhalte vom Xbox Live Marktplatz
+1Xbox Live Arcade
+=Xbox Live
+)Downloading content from Xbox Live Arcade
+.Downloading content from Xbox Live Marketplace
+ Xbox Live Arcade
+ Xbox Live
+ugi Xbox Live
+ug Xbox Live
+MaxSigninUsers
+GetLivePasscode
+SetLivePasscode
+GetSigninState
+SigninState
+'friendschannel_salute.MsLiveAvatarAsset
+(friendschannel_shuffle.MsLiveAvatarAsset
+LiveTile_Social
+LiveTile_Social_Corner
+LiveTile_White
+LiveTile_White
+LiveTile_White
+LiveTile_White
+LiveTile_Social
+LiveDataGrid
+LiveTile_Social_Corner
+LiveTile_White
+common://LiveLogo.png
+Can't connect to the Xbox Live Party. The party is full.
+You need an invite to join this Xbox Live Party.
+You're not connected to Xbox Live
+Verbindung mit der Xbox Live Party kann nicht aufgebaut werden. Die Party ist voll.
+tigen eine Einladung, um dieser Xbox Live Party beizutreten.
+Sie sind nicht mit Xbox Live verbunden
+No puedes conectarte a Xbox Live Party. El grupo est
+Para unirte a esta Xbox Live Party, necesitas una invitaci
+s conectado a Xbox Live
+amis Xbox Live. Le groupe est complet.
+amis Xbox Live, vous avez besoin d
+ au Xbox Live
+Impossibile connettersi al gruppo Xbox Live. Il gruppo
+Per unirti a questo gruppo Xbox Live
+Non sei connesso da Xbox Live
+Xbox Live
+ Xbox Live
+Xbox Live
+Xbox Live
+ Xbox Live
+Xbox Live
+ Xbox Live. Grupa jest pe
+ do tej grupy Xbox Live.
+ Xbox Live
+vel conectar ao Grupo Xbox Live. O grupo est
+ precisa ser convidado para participar deste Grupo do Xbox Live.
+ conectado ao Xbox Live
+ Xbox Live.
+ Xbox Live
+ Xbox Live
+ Xbox Live
+ Xbox Live
+ Xbox Live
+ Xbox LIVE
+PlaySigninAnimations
+livepack#wave_N.bin
+SignIn
+3livepack#transition_jumpInWaveZipOutLeftIdle_N.bin
+&livepack#focusOffline_jumpIntro_N.bin
+&livepack#focusOffline_jumpOutro_N.bin
+livepack#focus_jumpIntro_N.bin
+"livepack#focus_jumpIntro_01_N.bin
+"livepack#focus_jumpIntro_02_N.bin
+"livepack#focus_jumpIntro_03_N.bin
+livepack#focus_jumpOutro_N.bin
+"livepack#focus_jumpOutro_01_N.bin
+"livepack#focus_jumpOutro_02_N.bin
+"livepack#focus_jumpOutro_03_N.bin
+1livepack#friendschannel_salute.MsLiveAvatarAsset
+2livepack#friendschannel_shuffle.MsLiveAvatarAsset
+SignIn
+isLiveRequest
+4Web Service requests cannot specify 'isLiveRequest'
+OnLiveConnectionChanged
+signinState
+SignedInToLive
+OnLiveConnectionChanged
+signinSlotScene
+common://ico_64x_SignIn.png
+Provider=Signin
+ConnectToLive
+ConnectToLive
+ConnectToLive
+_layoutSigninSlotIndex
+GetLiveHiveValue
+profileConnectedToLive
+LivePresenceChanged
+LivePresenceChanged
+_layoutSigninSlotIndex
+IsCurrentUserLiveEnabled
+signinState
+SignedInToLive
+signinState
+LiveEnabled
+SigninChanged
+SigninChanged
+PlaySigninAnimations
+IsCurrentUserLiveEnabled
+IsCurrentUserLiveEnabled
+IsCurrentUserLiveEnabled
+ConnectToLive
+GetLiveHiveValue
+LiveServiceUrl.activity
+xboxLive.png
+oobeCompleteLive.xur
+oobePrepareCompleteLive.xur
+de-de\oobeCompleteLive.xus
+5!de-de\oobePrepareCompleteLive.xus
+es-es\oobeCompleteLive.xus
+!es-es\oobePrepareCompleteLive.xus
+fr-fr\oobeCompleteLive.xus
+!fr-fr\oobePrepareCompleteLive.xus
+it-it\oobeCompleteLive.xus
+u!it-it\oobePrepareCompleteLive.xus
+ko-kr\oobeCompleteLive.xus
+!ko-kr\oobePrepareCompleteLive.xus
+ja-jp\oobeCompleteLive.xus
+Q!ja-jp\oobePrepareCompleteLive.xus
+pl-pl\oobeCompleteLive.xus
+!pl-pl\oobePrepareCompleteLive.xus
+pt-br\oobeCompleteLive.xus
+!pt-br\oobePrepareCompleteLive.xus
+ru-ru\oobeCompleteLive.xus
+!ru-ru\oobePrepareCompleteLive.xus
+zh-tw\oobeCompleteLive.xus
+!zh-tw\oobePrepareCompleteLive.xus
+Join Xbox Live
+Live
+LiveEnd
+btn_LiveTile_oobe
+Thanks for buying an Xbox Live Gold membership with this console.
+btn_LiveTile_oobe
+navTestLive
+Test Xbox Live Connection
+btn_LiveTile_oobe
+LiveStatusScene
+txtLiveStatus
+LIVE Status
+Xbox Live:
+&TestingLive
+btn_LiveTile_oobe
+btn_LiveTile_oobe
+btnContent\0btnFamilyTimer\0btnLiveA\0btnLiveC\0btnPass\0btnReset
+Xbox Live Access
+Xbox Live Membership Creation
+dashSysCslSetPControlLiveA.xur
+dashSysCslSetPControlLiveC.xur
+btn_LiveTile_oobe
+ scOobeCompleteLive
+oobeCompleteLive
+btn_LiveTile_oobe
+scOobePrepareCompleteLive
+oobePrepareCompleteLive
+btn_LiveTile_oobe
+r den Erwerb einer Xbox Live Gold-Mitgliedschaft mit dieser Konsole.
+Xbox Live-Verbindung testen
+Xbox LIVE-Verbindung testen
+sLIVE-Status
+~Xbox Live
+Zugang zu Xbox Live
+Xbox Live-Mitgliedschaftserstellung
+Xbox Live beitreten
+n en Xbox Live Gold con esta consola.
+n a Xbox Live
+sEstado de LIVE
+Acceso a Xbox Live
+n a Xbox Live
+Unirse a Xbox Live
+seau et du Xbox LIVE. Amusez-vous bien !
+Nous vous remercions pour l'achat de l'abonnement Xbox Live Gold avec cette console.
+Tester la connexion Xbox Live
+tat LIVE
+~Xbox Live :
+der au Xbox Live
+er abonnement Xbox Live
+Rejoindre le Xbox Live
+Grazie per esserti iscritto ad un abbonamento Xbox Live con questa console.
+Verifica connessione Xbox Live
+sStato LIVE
+Accesso a Xbox Live
+Creazione abbonam. Xbox Live
+Partecipa a Xbox Live
+ Xbox Live
+Xbox Live
+sLIVE
+Xbox Live
+Xbox Live
+Xbox Live
+Xbox Live
+Xbox Live
+sLIVE
+Xbox Live
+Xbox Live
+Xbox Live
+udze Xbox Live Gold na tej konsoli.
+czenie z Xbox Live
+ugi LIVE
+ugi Xbox Live
+. Xbox Live
+cz do Xbox Live
+Obrigado por comprar uma assinatura Xbox Live Gold com este console.
+o do Xbox Live
+sStatus do LIVE
+Acessar Xbox Live
+Criar Assinatura do Xbox Live
+Participe do Xbox Live
+ Xbox Live Gold
+ Xbox Live
+ LIVE
+ Xbox Live
+ Xbox Live
+ Xbox Live
+ Xbox Live
+ Xbox Live
+sLIVE
+ Xbox Live
+ Xbox Live
+ Xbox Live
+SkipSigninSlot.xur
+SignInTemplate.xur
+ico_xbox_LIVE.png
+de-de\SignInTemplate.xus
+de-de\SkipSigninSlot.xus
+es-es\SignInTemplate.xus
+es-es\SkipSigninSlot.xus
+fr-fr\SignInTemplate.xus
+fr-fr\SkipSigninSlot.xus
+it-it\SignInTemplate.xus
+it-it\SkipSigninSlot.xus
+ko-kr\SignInTemplate.xus
+ko-kr\SkipSigninSlot.xus
+ja-jp\SignInTemplate.xus
+ja-jp\SkipSigninSlot.xus
+pl-pl\SignInTemplate.xus
+pl-pl\SkipSigninSlot.xus
+pt-br\SignInTemplate.xus
+pt-br\SkipSigninSlot.xus
+ru-ru\SignInTemplate.xus
+ru-ru\SkipSigninSlot.xus
+zh-tw\SignInTemplate.xus
+zh-tw\SkipSigninSlot.xus
+btn_LiveTileSmall
+btn_LiveTileSmall
+XboxLIVE
+ico_xbox_LIVE.png
+SigningInText
+SIGNING IN
+SigningInText1
+SIGNING IN .
+SigningInText2
+SIGNING IN ..
+SigningInText3
+SIGNING IN ...
+SigningIn
+SigninInAnim
+EndSigningIn
+ModalToSignIn
+EndModalToSignIn
+btn_LiveTile_Icon
+common://ico_64x_SkipSignIn.png
+$SignInTemplate
+CSignInTemplateScene
+Signin Template
+Already have an Xbox Live profile?
+Signing in %s...
+Signing out %s...
+Haben Sie bereits ein Xbox Live-Profil?
+Ya tienes un perfil de Xbox Live?
+ un profil Xbox Live?
+ un profilo Xbox Live?
+ Xbox Live
+ Xbox Live
+udze Xbox Live?
+ possui um perfil do Xbox Live?
+ Xbox Live?
+ Xbox Live
+LiveTileSlot.xur
+de-de\LiveTileSlot.xus
+es-es\LiveTileSlot.xus
+fr-fr\LiveTileSlot.xus
+it-it\LiveTileSlot.xus
+ko-kr\LiveTileSlot.xus
+ja-jp\LiveTileSlot.xus
+pl-pl\LiveTileSlot.xus
+pt-br\LiveTileSlot.xus
+ru-ru\LiveTileSlot.xus
+zh-tw\LiveTileSlot.xus
+LiveTile
+LiveTileSlotScene
+LiveTile
+                        <path>EsLiveTile</path>
+                    <name>Connect to Live</name>
+                    <description>%EvComResStr(IDS_LIVE_CONNECT_VUI_DISPLAY)%</description>
+                        <visiblephrase>%EvComResStr(IDS_LIVE_CONNECT_VUI_DISPLAY_ALT)%</visiblephrase>
+                        <phrase>%EvComResStr(IDS_LIVE_CONNECT_VUI_PRON)%</phrase>
+                        <cmd>EcConnectToLive</cmd>
+                        <path>EsLiveTile</path>
+                <path>EsLiveTile</path>
+                        <path>EsLiveTile</path>
+                    <name>Connect to Live</name>
+                    <description>%EvComResStr(IDS_LIVE_CONNECT_VUI_DISPLAY)%</description>
+                        <visiblephrase>%EvComResStr(IDS_LIVE_CONNECT_VUI_DISPLAY_ALT)%</visiblephrase>
+                        <phrase>%EvComResStr(IDS_LIVE_CONNECT_VUI_PRON)%</phrase>
+                        <cmd>EcConnectToLive</cmd>
+                        <path>EsLiveTile</path>
+                        <path>EsLiveTile</path>
+                        <path>EsLiveTile</path>
+                    <name>Connect to Live</name>
+                    <description>%EvComResStr(IDS_LIVE_CONNECT_VUI_DISPLAY)%</description>
+                        <visiblephrase>%EvComResStr(IDS_LIVE_CONNECT_VUI_DISPLAY_ALT)%</visiblephrase>
+                        <phrase>%EvComResStr(IDS_LIVE_CONNECT_VUI_PRON)%</phrase>
+                        <cmd>EcConnectToLive</cmd>
+                        <path>EsLiveTile</path>
+                        <path>EsLiveTile</path>
+                        <path>EsLiveTile</path>
+                    <name>Connect to Live</name>
+                    <description>%EvComResStr(IDS_LIVE_CONNECT_VUI_DISPLAY)%</description>
+                        <visiblephrase>%EvComResStr(IDS_LIVE_CONNECT_VUI_DISPLAY_ALT)%</visiblephrase>
+                        <phrase>%EvComResStr(IDS_LIVE_CONNECT_VUI_PRON)%</phrase>
+                        <cmd>EcConnectToLive</cmd>
+                        <path>EsLiveTile</path>
+                        <path>EsLiveTile</path>
+                        <path>EsLiveTile</path>
+                        <path>EsLiveTile</path>
+                        <path>EsLiveTile</path>
+                        <path>EsLiveTile</path>
+                        <path>EsLiveTile</path>
+                        <path>EsLiveTile</path>
+                        <path>EsLiveTile</path>
+                        <condition>EcoConnectedToLive()</condition>
+                        <path>EsLiveTile</path>
+                        <path>EsLiveTile</path>
+                        <condition>EcoConnectedToLive()</condition>
+                        <path>EsLiveTile</path>
+                        <path>EsLiveTile</path>
+                        <path>EsLiveTile</path>
+                        <condition>EcoLiveTier(Silver)</condition>
+                        <path>EsLiveTile</path>
+                        <param>Dash.MP.LiveSignup.lex</param>
+                        <path>EsLiveTile</path>
+                        <cmd>EcLaunchLiveSignup</cmd>
+            <!-- Slot 3, Signin -->
+                    <name>Signin</name>
+                    <description>%EvResStr(IDS_SIGNUP_LANDING_SIGNIN_VUI_DISPLAY)%</description>
+                        <visiblephrase>%EvResStr(IDS_SIGNUP_LANDING_SIGNIN_VUI_DISPLAY_ALT)%</visiblephrase>
+                        <phrase>%EvResStr(IDS_SIGNUP_LANDING_SIGNIN_VUI_PRON)%</phrase>
+                        <path>EsLiveTile</path>
+                        <param>common://ico_64x_SignIn.png</param>
+                        <param2>Provider=Signin</param2>
+                        <path>EsLiveTile</path>
+You need Xbox Live Gold to continue
+Additional subscriptions and requirements may be needed. See Xbox.com/live for details.
+You need an Xbox Live account to continue
+It's easy and free to sign up for an Xbox Live account.
+Xbox Live
+Sie brauchen Xbox Live Gold, um fortzufahren
+r Einzelheiten siehe Xbox.com/live.
+Sie brauchen ein Xbox Live-Konto, um fortzufahren
+Ein Xbox Live-Konto registrieren ist einfach und kostenlos.
+Necesitas una cuenta de Xbox Live Gold para continuar
+an requerirse. Accede a Xbox.com/live para m
+Necesitas una cuenta Xbox Live para continuar
+Es gratis y muy sencillo obtener una cuenta Xbox Live.
+Examinar aplicaciones
+Examinar aplicaciones
+Examinar juegos
+Examinar juegos
+Examinar m
+Examinar m
+Il vous faut Xbox Live Gold
+cessaires. Voir Xbox.com/live pour plus de d
+Il vous faut un compte Xbox Live pour continuer
+Ouvrir un compte Xbox Live, c'est facile et gratuit.
+Xbox Live Gold necessario
+Sottoscrizioni e requisiti addizionali potrebbero essere richiesti. Controlla su Xbox.com/live.
+Per continuare hai bisogno di un account su Xbox Live
+ semplice e gratis per iscriverti ad un account per Xbox Live.
+ Xbox Live
+ Xbox.com/live
+ Xbox Live
+Xbox Live
+Xbox Live
+Xbox Live
+ Xbox.com/live
+Xbox Live
+Xbox Live
+Do kontynuacji wymagany jest Xbox Live Gold
+ do Xbox.com/live.
+ wymagane jest konto Xbox Live
+Rejestracja konta Xbox Live jest bardzo
+ precisa do Xbox Live Gold para continuar
+ Xbox.com/live
+ precisa de uma conta Xbox Live para continuar
+Assinar uma conta Xbox Live
+ Xbox Live Gold
+ Xbox.com/live
+ Xbox Live
+ Xbox Live.
+ Xbox Live
+ Xbox.com/live
+ Xbox Live
+ Xbox Live
+DownloadLiveSignup.xur
+de-de\DownloadLiveSignup.xus
+es-es\DownloadLiveSignup.xus
+fr-fr\DownloadLiveSignup.xus
+it-it\DownloadLiveSignup.xus
+ko-kr\DownloadLiveSignup.xus
+ja-jp\DownloadLiveSignup.xus
+pl-pl\DownloadLiveSignup.xus
+pt-br\DownloadLiveSignup.xus
+ru-ru\DownloadLiveSignup.xus
+zh-tw\DownloadLiveSignup.xus
+downloadLiveSignupScene
+DownloadLiveSignupScene
+Welcome to Xbox Live!
+Other Xbox Live members will recognize you by your gamertag, avatar, and profile.
+Can't connect to Xbox Live.
+Connecting to Xbox Live
+Join Xbox Live
+Xbox Live signup is currently unavailable. Please try again later.
+Willkommen bei Xbox Live!
+Andere Xbox Live-Mitglieder erkennen Sie an Ihrem Gamertag, Avatar und Profil.
+Xbox Live Verbindungsfehler.
+Verbindung mit Xbox Live wird aufgebaut...
+Xbox Live beitreten
+Xbox Live-Anmeldung ist zurzeit nicht verf
+Bienvenido a Xbox Live!
+El resto de miembros de Xbox Live te reconocer
+No se puede conectar con Xbox Live.
+Conectando con Xbox Live
+Unirse a Xbox Live
+El registro en Xbox Live no est
+Bienvenue sur le Xbox Live
+Les autres membres Xbox Live vous reconna
+Connexion au Xbox Live impossible.
+Connexion au Xbox Live
+Rejoindre le Xbox Live
+inscription au Xbox Live n
+Benvenuto a Xbox Live!
+Altri membri di Xbox Live ti riconosceranno dal tuo gamertag, avatar e profilo.
+Impossibile connettersi a Xbox Live.
+Connessione a Xbox Live in corso
+Partecipa a Xbox Live
+Abbonamento a Xbox Live attualmente non disponibile. Riprova in seguito.
+Xbox Live
+Xbox Live
+Xbox Live
+Xbox Live
+Xbox Live
+ Xbox Live
+Xbox Live
+Xbox Live
+Xbox Live
+Xbox Live
+Xbox Live
+Xbox Live
+udze Xbox Live!
+ugi Xbox Live mog
+ Xbox Live.
+ Xbox Live
+cz do Xbox Live
+ugi Xbox Live jest obecnie niedost
+Bem-vindo ao Xbox Live!
+Outros assinantes do Xbox Live reconhecer
+vel conectar ao Xbox Live.
+Conectando ao Xbox Live
+Participe do Xbox Live
+vel entrar no Xbox Live agora. Tente novamente mais tarde.
+ Xbox Live!
+ Xbox Live
+ Xbox Live.
+ Xbox Live
+ Xbox Live
+ Xbox Live
+ Xbox Live
+ Xbox Live
+ Xbox Live
+ Xbox Live
+ Xbox Live
+Xbox Live
+LiveTile
+LiveDataGrid
+LiveTileSmall
+btn_LiveTile_oobe
+btn_LiveTile
+btn_LiveTile_Icon
+btn_LiveTileSmall
+When you connect to Xbox Live and test your connection, your console may download updates and send info about your connection, console, and errors to Xbox Live. Read our privacy statement at http://privacy.microsoft.com.
+Select Test Media to apply your settings and test your home network connections. Select Test Xbox Live to apply your settings and test your connection to Xbox Live.
+Test Xbox Live
+You can connect to Xbox Live, but your current network configuration may limit your ability to join a multiplayer game or hear (or be heard by) other people in your party.
+This console has been banned for violations of the Services Agreement. To protect the Xbox Live Service and its members, Microsoft does not provide details about specific console bans.
+The DNS server can't resolve Xbox Live server names. This may be a problem outside your home network, and you may need to contact your ISP.
+Your DNS server can't resolve Xbox Live server names. Visit www.xbox.com/dns-help for more help.
+The router or modem may not be automatically assigning an IP address. Try a static IP address instead.<br/>
+Your console is connected to the Internet but can't contact Xbox Live. Visit www.xbox.com/connection-help for more help.
+Live Connection Error
+A problem with your router or modem is preventing communication with Xbox Live. Visit www.xbox.com/mtu-help for more help.
+When connection problems occur, you can send information about your connection, console, and errors to Xbox Live. This information is not used to identify or contact you without your consent. Read our privacy statement at http://privacy.microsoft.com.
+Test Xbox Live Connection
+navTestLive
+Test Xbox Live Connection
+LiveStatusScene
+LiveImage
+sharedres://livelogo.png
+txtLiveStatus
+Live Status
+Live Service Alert: www.xbox.com/servicealerts.<br />
+Xbox Live:
+"TestingLive
+Live-Servicewarnung: www.xbox.com/servicealerts.<br />
+Xbox Live-Verbindung testen
+xLive-Status
+Wenn Sie sich mit Xbox Live verbinden und Ihre Verbindung testen, kann Ihre Konsole Aktualisierungen herunterladen und Informationen
+ber Ihre Verbindung, die Konsole und Fehler an Xbox Live senden. Lesen Sie unsere Datenschutzerkl
+hlen Sie "Xbox Live testen", um Ihre Einstellungen zu
+bernehmen und Ihre Verbindung zu Xbox Live zu testen.
+Xbox Live testen
+nnen die Verbindung mit Xbox Live herstellen, aber Ihre aktuelle Netzwerkkonfiguration kann die Teilnahme an Multiplayer-Spielen oder die Sprachkommunikation mit anderen Spielern in der Party einschr
+Diese Konsole wurde wegen Verletzungen des Servicevertrags gesperrt. Um den Xbox Live-Service und seine Mitglieder zu sch
+Der DNS-Server kann Xbox Live-Servernamen nicht aufl
+Ihr DNS-Server kann Xbox Live-Servernamen nicht aufl
+Ihre Konsole ist mit dem Internet verbunden, kann aber Xbox Live nicht kontaktieren. Besuchen Sie www.xbox.com/connection-help, um weitere Hilfe zu erhalten.
+Live-Verbindungsfehler
+Ein Problem mit Ihrem Router oder Modem verhindert die Kommunikation mit Xbox Live. Besuchen Sie www.xbox.com/mtu-help, um weitere Hilfe zu erhalten.
+ber Ihre Verbindung, Ihre Konsole und Fehler an Xbox Live senden. Diese Informationen werden nicht verwendet, um Sie zu identifizieren oder Sie ohne Ihre Erlaubnis zu kontaktieren. Lesen Sie unsere Datenschutzerkl
+Xbox Live-Verbindung testen
+Servicio de alertas de Live: www.xbox.com/servicealerts.<br />
+n a Xbox Live
+xEstado de Live
+Al conectarte a Xbox Live y probar tu conexi
+n, consola y errores a Xbox Live. Lee nuestra declaraci
+stica. Selecciona Probar Xbox Live para aplicar la configuraci
+n a Xbox Live.
+Probar Xbox Live
+Puedes conectarte a Xbox Live, pero tu actual configuraci
+Esta consola se ha vetado por infringir el Acuerdo de servicios. Para proteger el servicio Xbox Live y a sus miembros, Microsoft no proporciona detalles acerca de los vetos espec
+El servidor DNS no puede resolver los nombres de los servidores Xbox Live. Puede tratarse de un problema externo a tu red dom
+Tu servidor DNS no puede resolver los nombres de los servidores Xbox Live. Visita www.xbox.com/dns-help para obtener m
+ conectada a Internet pero no logra ponerse en contacto con Xbox Live. Visita www.xbox.com/connection-help para obtener m
+n de Live
+n con Xbox Live. Visita www.xbox.com/mtu-help para obtener m
+n, consola y errores a Xbox Live. Esta informaci
+n a Xbox Live
+Alerte de service Live : www.xbox.com/servicealerts.<br />
+Tester la connexion Xbox Live
+tat Live
+yXbox Live :
+Lorsque vous vous connectez au Xbox Live et testez votre connexion, votre console peut t
+lectionnez Tester Xbox Live pour appliquer vos param
+tres et tester la connexion au Xbox Live.
+Tester Xbox Live
+Vous pouvez vous connecter au Xbox Live, mais la configuration actuelle de votre r
+ger le service Xbox Live et ses membres, Microsoft ne fournit aucun d
+soudre le nom des serveurs Xbox Live. Il peut s'agir d'un probl
+soudre le nom des serveurs Xbox Live. Pour obtenir de l'aide suppl
+ contacter Xbox Live. Pour obtenir de l'aide suppl
+Erreur de connexion Live
+che les communications avec le Xbox Live. Pour obtenir de l'aide suppl
+mes de connexion, vous pouvez envoyer au Xbox Live des informations sur votre connexion et votre console et signaler les erreurs qui se produisent. Elles ne sont pas utilis
+Tester la connexion Xbox Live
+Avviso per il servizio Xbox Live: www.xbox.com/servicealerts.<br />
+Verifica connessione Xbox Live
+xStato Live
+Quando ti connetti a Xbox Live e provi la connessione, la tua console pu
+ scaricare aggiornamenti e inviare a Xbox Live informazioni sulla connessione, sulla console e sugli errori. Leggi l'informativa sulla privacy all'indirizzo http://privacy.microsoft.com.
+Seleziona Verifica media per applicare le impostazioni e verificare le connessioni ai computer della rete. Seleziona Verifica Xbox Live per applicare le impostazioni e verificare la connessione a Xbox Live.
+Verifica Xbox Live
+ possibile connettersi a Xbox Live, ma la configurazione di rete attuale potrebbe limitare la tua capacit
+ stata esclusa per violazioni del Contratto di Servizi. Per proteggere il servizio Xbox Live e i suoi abbonati, Microsoft non fornisce dettagli sulle console escluse.
+ in grado di risolvere i nomi dei server Xbox Live. Il problema pu
+ in grado di risolvere i nomi dei server Xbox Live. Per ulteriori informazioni, visita il sito www.xbox.com/dns-help.
+ in grado di contattare Xbox Live. Per ulteriori informazioni, visita il sito www.xbox.com/connection-help.
+Errore di connessione a Live
+Impossibile comunicare con Xbox Live a causa di un problema con il router o il modem. Per ulteriori informazioni, visita il sito www.xbox.com/mtu-help.
+Quando si verificano problemi di connessione, puoi inviare a Xbox Live informazioni sulla connessione, sulla console e sugli errori. Tali informazioni non verranno utilizzate per identificarti o contattarti senza il tuo consenso. Leggi l'informativa sulla privacy all'indirizzo http://privacy.microsoft.com.
+Verifica connessione Xbox Live
+Live
+Xbox Live
+xLive
+Xbox Live
+ Xbox Live
+ Xbox Live
+ [Xbox Live
+Xbox Live
+Xbox Live
+ Xbox Live
+ Xbox Live
+ Xbox Live
+ Xbox Live
+Live
+ Xbox Live
+ Xbox Live
+Xbox Live
+Live
+Xbox Live
+xLive
+Xbox Live
+ Xbox Live
+Xbox Live
+Xbox Live
+[Xbox Live
+Xbox Live
+Live
+Xbox Live
+Xbox Live
+Xbox Live
+Xbox Live
+Xbox Live
+Live
+Xbox Live
+ Xbox Live
+Xbox Live
+ugi Live: www.xbox.com/servicealerts.<br />
+czenie z Xbox Live
+ugi Live
+ Xbox Live i przetestowania po
+ Xbox Live. Zapoznaj si
+ Xbox Live, aby zastosowa
+ Xbox Live.
+ Xbox Live
+ Xbox Live, lecz bie
+ Xbox Live i jej u
+ugi Xbox Live. M
+ugi Xbox Live. Aby uzyska
+ Xbox Live. Aby uzyska
+ Live
+ Xbox Live. Aby uzyska
+ugi Xbox Live. Te informacje nie zostan
+czenie z Xbox Live
+Live Service Alert: www.xbox.com/servicealerts.<br />
+o do Xbox Live
+xStatus do Live
+ estiver conectado ao Live e testar sua conex
+o, seu console e erros ao Xbox Live. Leia nossa declara
+stica. Selecione Testar Xbox Live para aplicar as configura
+o com o Xbox Live.
+Testar Xbox Live
+ pode conectar-se ao Xbox Live, mas a sua configura
+o Xbox Live e seus assinantes, a Microsoft n
+o pode identificar os nomes dos servidores Xbox Live. Este pode ser um problema fora da rede dom
+o pode identificar os nomes dos servidores Xbox Live. Visite www.xbox.com/dns-help para obter ajuda adicional.
+o pode entrar em contato com o Xbox Live. Visite www.xbox.com/connection-help para obter ajuda adicional.
+o ao Live
+o com o Xbox Live. Visite www.xbox.com/mtu-help para obter ajuda adicional.
+o, o console e os erros para o Xbox Live. Essas informa
+o do Xbox Live
+ Live: www.xbox.com/servicealerts.<br />
+ Xbox Live
+ Live
+ Xbox Live
+ Xbox Live",
+ Xbox Live.
+ Xbox Live
+ Xbox Live,
+ Xbox Live
+ Xbox Live.
+ Xbox Live.
+ Xbox Live.
+ Live
+ Xbox Live.
+ Xbox Live.
+ Xbox Live
+Live
+ Xbox Live
+xLive
+~Xbox Live:
+ Xbox Live
+ Xbox Live
+ Xbox Live,
+ Xbox Live]
+ Xbox Live
+ Xbox Live
+ Xbox Live,
+ Xbox Live
+ Xbox Live
+ Xbox Live
+ Xbox Live
+Live
+ Xbox Live
+ Xbox Live
+ Xbox Live
+ disponibile nel Marketplace Xbox LIVE.
+This will remove all content on this device, including the system update. This may also remove the ability to access Xbox Live. To use these features again, sign in to Xbox Live and download the update. For more info, visit www.xbox.com/storage.
+Xbox Live Arcade Game
+Sign in to Xbox Live
+If any storage device contains a system update, the update and access to Xbox Live will be removed. To use these features again, sign in to Xbox Live and download the update. For more info, visit www.xbox.com/storage.
+This will delete the system update, which may also remove the ability to access Xbox Live. To use these features again, sign in to Xbox Live and download the update. For more info, visit www.xbox.com/storage.
+You won't be able to use additional console features or access Xbox Live until you clear some space and apply the update. For more info, visit www.xbox.com/storage.
+t, auch die Systemaktualisierung. Auf Xbox Live kann eventuell nicht mehr zugegriffen werden. Zur Wiederherstellung dieser Funktionen, melden Sie sich bei Xbox Live an und laden Sie die Aktualisierung herunter. Weitere Informationen finden Sie unter www.xbox.com/storage.
+Xbox Live Arcade-Spiel
+Bei Xbox Live anmelden
+lt, werden die Aktualisierung und der Zugriff auf Xbox Live entfernt. Um diese Funktionen wieder zu verwenden, melden Sie sich bei Xbox Live an und laden Sie die Aktualisierung herunter. Weitere Informationen finden Sie unter www.xbox.com/storage.
+glichkeit beseitigt, auf Xbox Live zuzugreifen. Um diese Funktionen wieder zu verwenden, melden Sie sich bei Xbox Live an und laden Sie die Aktualisierung herunter. Weitere Informationen finden Sie unter www.xbox.com/storage.
+tzliche Konsolenfunktionen zu verwenden oder auf Xbox Live zuzugreifen, m
+n. Es posible que se elimine el acceso a Xbox Live. Para volver a usar estas caracter
+n en Xbox Live y descarga la actualizaci
+Juego Xbox Live Arcade
+n en Xbox Live
+n y el acceso a Xbox Live. Para volver a usar estas caracter
+n en Xbox Live y descarga la actualizaci
+a quitar la posibilidad de acceder a Xbox Live. Para usar estas caracter
+n en Xbox Live y descarga la actualizaci
+sticas adicionales de la consola ni tener acceso a Xbox Live hasta que liberes espacio y apliques la actualizaci
+s au Xbox Live. Pour r
+s, connectez-vous au Xbox Live et t
+Jeu Xbox Live Arcade
+Se connecter au Xbox Live
+s au Xbox Live seront supprim
+s, connectez-vous au Xbox Live et t
+s au Xbox Live. Pour utiliser
+s, connectez-vous au Xbox Live et t
+der au Xbox Live tant que vous n
+Tutti i contenuti memorizzati su questa periferica, incluso l'aggiornamento del sistema, verranno rimossi. Potrebbe risultare impossibile accedere a Xbox Live. Per utilizzare di nuovo queste funzionalit
+, accedi a Xbox Live e scarica l'aggiornamento. Per ulteriori informazioni, visita il sito www.xbox.com/storage.
+Gioco Xbox Live Arcade
+Accedi a Xbox Live
+Se un dispositivo di memorizzazione contiene un aggiornamento del sistema, tale aggiornamento e l'accesso a Xbox Live verranno rimossi. Per utilizzare di nuovo queste funzionalit
+, accedi a Xbox Live e scarica l'aggiornamento. Per ulteriori informazioni, visita il sito www.xbox.com/storage.
+ eliminato. Potrebbe risultare impossibile accedere a Xbox Live. Per utilizzare di nuovo queste funzionalit
+, accedi a Xbox Live e scarica l'aggiornamento. Per ulteriori informazioni, visita il sito www.xbox.com/storage.
+ aggiuntive della console o accedere a Xbox Live fino a quando avrai eliminato qualche file e avrai effettuato l'aggiornamento. Per ulteriori informazioni, vai su www.xbox.com/storage.
+ Xbox Live
+ Xbox Live
+Xbox Live Arcade
+Xbox Live
+, Xbox Live
+ Xbox Live
+ Xbox Live
+ Xbox Live
+ Xbox Live
+Xbox Live
+Xbox Live
+Xbox Live
+Xbox Live
+Xbox Live
+Xbox Live
+Xbox Live
+Xbox Live
+Xbox Live
+Xbox Live
+ Xbox Live
+ugi Xbox Live. Aby nadal korzysta
+ do Xbox Live i pobierz aktualizacj
+Gra Xbox Live Arcade
+udze Xbox Live
+ugi Xbox Live zostan
+ugi Xbox Live i pobierz aktualizacj
+ugi Xbox Live. Aby m
+ugi Xbox Live i pobierz aktualizacj
+ugi Xbox Live nie b
+ a capacidade de acessar o Xbox Live. Para usar esses recursos novamente, entre no Xbox Live e fa
+Jogo Arcade Xbox Live
+Entrar no Xbox Live
+o e o acesso ao Xbox Live ser
+o removidos. Para usar esses recursos novamente, entre no Xbox Live e fa
+ a capacidade de acessar o Xbox Live. Para usar esses recursos novamente, entre no Xbox Live e fa
+ usar recursos adicionais do console ou acessar o Xbox Live enquanto n
+ Xbox Live.
+ Xbox Live
+ Xbox Live Arcade
+ Xbox Live
+ Xbox Live
+ Xbox Live
+ Xbox Live.
+ Xbox Live
+ Xbox Live
+ Xbox Live
+ Xbox Live
+Xbox Live Arcade
+ Xbox Live
+ Xbox Live
+ Xbox Live
+ Xbox Live
+ Xbox Live
+ Xbox Live
+xbox_live_logo
+common://LiveLogo.png
+Livello di zoom %d
+ico_64x_SignIn.png
+ico_64x_SkipSignIn.png
+LiveLogo.png
+Some Xbox Live content is temporarily unavailable. Please try again later.
+Xbox Live is your connection to a world of entertainment. Now that your network is set up, you can sign up for free.
+Join Xbox Live
+You need to be connected to Xbox Live to continue. Connect now?
+Connect to Xbox Live
+Connect to Xbox Live
+Connect to Xbox Live
+You need an Xbox Live profile to continue. Join Xbox Live?
+Xbox Live Required
+You need an Xbox Live profile to continue. Sign in to Xbox Live?
+This video requires a connection to Xbox Live.
+To test your connection, open System Settings and select Network Settings, Test Xbox Live Connection.
+Thanks for buying an Xbox Live Gold membership with this console.
+Enter your Xbox Live pass code.
+A media update is required to play one or more of the songs in the current playlist. To get the update, sign in to Xbox Live and play the content again.
+A media update is required to play this content. To get the update, sign in to Xbox Live and play the content again.
+The license for this item is missing, expired, or corrupted, or doesn't belong to the current profile. To restore the license, sign in to Xbox Live with the profile that originally downloaded the item and try again.
+Can't play this video because the profile that was downloading it is no longer signed in to Xbox Live. To download the video, sign in with the profile that started the download.
+Xbox Live
+Xbox Live is currently unavailable. Please check back later.
+Xbox Live is currently unavailable. Please check back later.
+live_tiles
+Ein Teil des Xbox Live-Inhalts ist vorl
+Xbox Live ist Ihre Verbindung zu einer Welt der Unterhaltung. Jetzt, nach Einrichtung Ihres Netzwerks, k
+Xbox Live beitreten
+ssen mit Xbox Live verbunden sein, um fortzufahren. Jetzt verbinden?
+Mit Xbox Live verbinden
+Mit Xbox Live verbinden
+Mit Xbox Live verbinden
+tigen ein Xbox Live-Profil, um fortzufahren. Xbox Live beitreten?
+Xbox Live erforderlich
+tigen ein Xbox Live-Profil, um fortzufahren. Bei Xbox Live anmelden?
+Dieses Video erfordert eine Verbindung zu Xbox Live.
+hlen Sie "Netzwerkeinstellungen", "Xbox Live-Verbindung testen".
+r den Erwerb einer Xbox Live Gold-Mitgliedschaft mit dieser Konsole.
+Bitte geben Sie Ihren Xbox Live-Passcode ein.
+Eine Medienaktualisierung ist erforderlich, um einen oder mehrere der Songs in der aktuellen Wiedergabeliste abzuspielen. Um die Aktualisierung zu erhalten, melden Sie sich bei Xbox Live an und spielen Sie den Inhalt erneut ab.
+Eine Medienaktualisierung ist erforderlich, damit dieser Inhalt abgespielt werden kann. Um die Aktualisierung zu erhalten, melden Sie sich bei Xbox Live an und spielen Sie den Inhalt erneut ab.
+rt nicht zum aktuellen Profil. Um die Lizenz wiederherzustellen, melden Sie sich bei Xbox Live mit dem Profil an, mit dem Sie den Inhalt urspr
+Dieses Video kann nicht abgespielt werden, da das Profil, mit dem es heruntergeladen wurde, nicht mehr bei Xbox Live angemeldet ist. Um das Video herunterzuladen, melden Sie sich mit dem Profil an, mit dem der Download gestartet wurde.
+Der Xbox LIVE-Marktplatz ist anscheinend vor
+Xbox Live ist zurzeit nicht verf
+Xbox Live ist zurzeit nicht verf
+Parte del contenido de Xbox Live no est
+Xbox Live es tu conexi
+Unirse a Xbox Live
+Necesitas conectarte a Xbox Live para continuar.
+ctate a Xbox Live
+ctate a Xbox Live
+ctate a Xbox Live
+Necesitas un perfil de Xbox Live para continuar.
+Quieres unirte a Xbox Live?
+Es necesario Xbox Live
+Necesitas un perfil de Xbox Live para continuar.
+n en Xbox Live?
+n a Xbox Live.
+n a Xbox Live.
+n en Xbox Live Gold con esta consola.
+digo de acceso de Xbox Live.
+n en Xbox Live y vuelve a reproducir el contenido.
+n en Xbox Live y vuelve a reproducir el contenido.
+n en Xbox Live con el perfil que descarg
+n en Xbox Live. Para descargar el video, inicia sesi
+Xbox Live no est
+Xbox Live no est
+Une partie du contenu Xbox Live n
+. Xbox Live vous connecte
+Rejoindre le Xbox Live
+ au Xbox Live pour continuer. Se connecter
+Se connecter au Xbox Live
+Se connecter au Xbox Live
+Se connecter au Xbox Live
+un profil Xbox Live pour continuer. Rejoindre le Xbox Live
+Xbox Live requis
+un profil Xbox Live pour continuer. Se connecter au Xbox Live
+cessite une connexion au Xbox Live.
+seau, puis Tester la connexion Xbox Live.
+Nous vous remercions pour l'achat de l'abonnement Xbox Live Gold avec cette console.
+s Xbox Live.
+ jour, connectez-vous au Xbox Live et relancez la lecture du contenu.
+ jour, connectez-vous au Xbox Live, puis relancez le contenu.
+Live avec le profil qui a t
+ au Xbox Live. Pour t
+Xbox Live n
+Xbox Live n
+ di Xbox Live sono temporaneamente non disponibili. Riprova pi
+Con Xbox Live puoi entrare in un fantastico mondo di intrattenimento. Ora che hai configurato la rete, puoi iscriverti gratuitamente.
+Partecipa a Xbox Live
+ necessario essere connessi a Xbox Live. Desideri connetterti ora?
+Connetti a Xbox Live
+Connetti a Xbox Live
+Connetti a Xbox Live
+ necessario un profilo Xbox Live per continuare. Desideri partecipare a Xbox Live?
+ necessario Xbox Live
+ necessario un profilo Xbox Live per continuare. Desideri accedere a Xbox Live?
+ necessaria una connessione a Xbox Live.
+Per verificare la tua connessione, apri Impostazioni di sistema e seleziona Impostazioni di rete, Verifica connessione Xbox Live.
+Grazie per esserti iscritto ad un abbonamento Xbox Live con questa console.
+Inserisci il tuo codice di accesso a Xbox Live.
+ dei brani nell'elenco di riproduzione attuale. Per ottenere questo aggiornamento multimediale, puoi accedere a Xbox Live ed eseguire nuovamente il contenuto multimediale.
+ necessario un aggiornamento multimediale avanzato per l'esecuzione di contenuti di questo tipo. Per ottenere questo aggiornamento multimediale, puoi accedere a Xbox Live ed eseguire nuovamente il contenuto multimediale.
+ mancante, scaduta o danneggiata o non appartiene al profilo attuale. Per utilizzare la licenza, accedi a Xbox Live col profilo che ha scaricato originariamente l
+ accesso a Xbox Live. Per eseguire il download del video, accedi col profilo che ha avviato il download.
+ verificato un problema con le scelte di Xbox LIVE. Per favore prova in seguito.
+Xbox Live non
+Xbox Live non
+Xbox Live
+. Xbox Live
+Xbox Live
+ Xbox Live
+Xbox Live
+Xbox Live
+ Xbox Live
+. Xbox Live
+Xbox Live
+ Xbox Live
+. Xbox Live
+ Xbox Live
+], [Xbox Live
+ Xbox Live
+Xbox Live
+ Xbox Live
+ Xbox Live
+ Xbox Live
+ Xbox Live
+ Xbox Live
+ Xbox Live
+ Xbox Live
+Xbox Live
+Xbox Live
+Xbox Live
+Xbox Live
+Xbox Live
+Xbox Live
+Xbox Live
+Xbox Live
+Xbox Live
+ [Xbox Live
+Xbox Live
+Xbox Live
+Xbox Live
+Xbox Live
+Xbox Live
+Xbox Live
+Xbox Live
+ugi Xbox Live jest aktualnie niedost
+uga Xbox Live jest Twoim
+ugi Xbox Live?
+cz do Xbox Live
+ Xbox Live. Chcesz po
+ Xbox Live
+ Xbox Live
+, potrzebujesz profilu Xbox Live. Czy chcesz do
+ugi Xbox Live?
+uga Xbox Live
+, potrzebujesz profilu Xbox Live. Czy chcesz zarejestrowa
+udze Xbox Live?
+ Xbox Live.
+czenie z Xbox Live.
+udze Xbox Live Gold na tej konsoli.
+ugi Xbox Live:
+ugi Xbox Live i odtw
+ugi Xbox Live i odtw
+ugi Xbox Live, u
+ugi Xbox Live nie jest ju
+uga Xbox Live nie jest aktualnie dost
+uga Xbox Live nie jest aktualnie dost
+dos do Xbox Live est
+Xbox Live
+Participe do Xbox Live
+ precisa se conectar ao Xbox Live. Conectar-se agora?
+Conectar ao Xbox Live
+Conectar ao Xbox Live
+Conectar ao Xbox Live
+ precisa de um perfil Xbox Live. Quer participar do Xbox Live?
+Xbox Live Necess
+ precisa de um perfil do Xbox Live para continuar. Entrar no Xbox Live?
+o com o Xbox Live.
+o Xbox Live.
+Obrigado por comprar uma assinatura Xbox Live Gold com este console.
+Digite a senha do Xbox Live.
+o, entre no Xbox Live e reproduza o conte
+o, entre no Xbox Live e inicie o conte
+a, entre no Xbox Live com o perfil usado para baixar o item originariamente e tente novamente.
+ mais conectado ao Xbox Live. Para baixar o v
+O Xbox Live est
+O Xbox Live est
+ Xbox Live
+Xbox Live
+ Xbox Live
+ Xbox Live,
+ Xbox Live
+ Xbox Live
+ Xbox Live,
+ Xbox Live?
+ Xbox Live
+ Xbox Live,
+ Xbox Live?
+ Xbox Live.
+ Xbox Live".
+ Xbox Live Gold
+ Xbox Live.
+ Xbox Live
+ Xbox Live
+ Xbox Live,
+ Xbox Live.
+ Xbox Live
+ Xbox LIVE
+ Xbox Live
+ Xbox Live
+ Xbox Live
+Xbox Live
+ Xbox Live
+ Xbox Live,
+ Xbox Live
+ Xbox Live
+ Xbox Live
+ Xbox Live
+ Xbox Live
+ Xbox Live
+ Xbox Live
+ Xbox Live
+ Xbox Live
+ Xbox Live
+ Xbox Live
+ Xbox Live,
+ Xbox Live,
+ Xbox Live,
+ Xbox Live,
+Xbox Live
+Xbox Live
+LiveVisionEffectOverlay
+LiveVisionDashEffect
+dashSysCslSetPControlLiveA.xur
+dashSysCslSetPControlLiveC.xur
+dashSysLiveVision.xur
+LiveTVSettings.xur
+$de-de\dashSysCslSetPControlLiveA.xus
+$de-de\dashSysCslSetPControlLiveC.xus
+de-de\dashSysLiveVision.xus
+de-de\LiveTVSettings.xus
+s$es-es\dashSysCslSetPControlLiveA.xus
+$es-es\dashSysCslSetPControlLiveC.xus
+es-es\dashSysLiveVision.xus
+es-es\LiveTVSettings.xus
+_$fr-fr\dashSysCslSetPControlLiveA.xus
+$fr-fr\dashSysCslSetPControlLiveC.xus
+fr-fr\dashSysLiveVision.xus
+fr-fr\LiveTVSettings.xus
+F$it-it\dashSysCslSetPControlLiveA.xus
+$it-it\dashSysCslSetPControlLiveC.xus
+it-it\dashSysLiveVision.xus
+it-it\LiveTVSettings.xus
+;F$ko-kr\dashSysCslSetPControlLiveA.xus
+$ko-kr\dashSysCslSetPControlLiveC.xus
+ko-kr\dashSysLiveVision.xus
+ko-kr\LiveTVSettings.xus
+$ja-jp\dashSysCslSetPControlLiveA.xus
+L$ja-jp\dashSysCslSetPControlLiveC.xus
+ja-jp\dashSysLiveVision.xus
+ja-jp\LiveTVSettings.xus
+G $pl-pl\dashSysCslSetPControlLiveA.xus
+$pl-pl\dashSysCslSetPControlLiveC.xus
+pl-pl\dashSysLiveVision.xus
+pl-pl\LiveTVSettings.xus
+$pt-br\dashSysCslSetPControlLiveA.xus
+y$$pt-br\dashSysCslSetPControlLiveC.xus
+pt-br\dashSysLiveVision.xus
+pt-br\LiveTVSettings.xus
+$ru-ru\dashSysCslSetPControlLiveA.xus
+$ru-ru\dashSysCslSetPControlLiveC.xus
+ru-ru\dashSysLiveVision.xus
+ru-ru\LiveTVSettings.xus
+$zh-tw\dashSysCslSetPControlLiveA.xus
+RK$zh-tw\dashSysCslSetPControlLiveC.xus
+zh-tw\dashSysLiveVision.xus
+zh-tw\LiveTVSettings.xus
+navSettings\0navKinectSettings\0navMemory\0navNetwork\0navWindowMediaConnect\0navLiveTV\0navLiveVision\0navSystemSetUp
+Change your Xbox 360 console settings, including display, audio, language, and remote control.\0Change Kinect sensor settings, and access the Kinect Tuner to configure your play space and diagnose audio problems.\0Move or delete saved games, profiles, and other items on Xbox 360 storage devices.\0Connect to Xbox Live or your home network. Set up wireless connections and test network settings.\0Manage your connection to a Windows Media Center PC.
+To connect to a PC running media sharing software, open the video player, music player, or picture viewer. \0Change your TV provider.\0Change the settings for your Xbox Live Vision camera.\0Start the original system setup.
+Xbox Live Vision
+LiveTVSettings.xur
+dashSysLiveVision.xur
+Sign in to Xbox Live for this to take effect.
+When connected to Xbox Live, the clock is set automatically and can't be changed.
+btnContent\0btnFamilyTimer\0btnLiveA\0btnLiveC\0btnPass\0btnReset\0btnSaveAndExit
+Manage access to Xbox Live from this console.
+You need a high-speed connection and a valid Xbox Live membership to play on Xbox Live.\0
+Decide whether new Xbox Live memberships can be created from this console.\0Change your current Family Settings pass code and secret question and answer.
+Xbox Live Access
+Xbox Live Membership Creation
+dashSysCslSetPControlLiveA.xur
+dashSysCslSetPControlLiveC.xur
+labMetaHeaderLiveA
+Access to Xbox Live
+labCurrentSettingLiveA
+labMetaHeaderLiveC
+Xbox Live Membership Creation
+labCurrentSettingLiveC
+dashPControlSettings_LiveA
+Access to Xbox Live
+If access is blocked, you won't be able to connect to Xbox Live to play games, communicate, or download content.
+You must have a high-speed connection and a valid Xbox Live membership to play online.
+dashPControlSettings_LiveC
+Xbox Live Membership Creation
+If membership creation is blocked, you won't be able to create new Xbox Live memberships until the restriction is removed.
+labMetaHeaderLiveA
+Access to Xbox Live
+labCurrentSettingLiveA
+labMetaHeaderLiveC
+Xbox Live Membership Creation
+labCurrentSettingLiveC
+dashLiveVisionSettingsScene
+Xbox Live Vision
+LiveVisionControl
+Can't detect your Xbox Live Vision camera. Make sure your camera is connected directly to the console.
+When your Xbox Live Vision camera and Kinect Sensor are both plugged in and turned on, your Vision camera is active only for Xbox Live Vision games. To use Vision in the Xbox Dashboard, turn off or unplug the Kinect Sensor.
+No providers found. To learn more about live TV on Xbox 360, go to the TV hub in the Xbox Dashboard.
+Select your main TV provider. This is your live TV provider that you'll see in the TV hub.
+Turn content controls on to change ratings and content restrictions, manage Xbox Live access, and use Family Timer.
+Xbox Live Access
+Can't show titles for all games. Please sign in to Xbox Live.
+ndern, den Zugang zu Xbox Live zu verwalten und den Familien-Timer zu verwenden.
+Zugang zu Xbox Live
+nnen nicht aufgelistet werden. Bitte melden Sie sich bei Xbox Live an.
+Melden Sie sich bei Xbox Live an, damit dies wirksam wird.
+Wenn Sie mit Xbox Live verbunden sind, wird die Uhr automatisch eingestellt und kann nicht ge
+Xbox Live-Zugriff
+Xbox Live-Mitgliedschaftserst.
+Verwalten Sie den Zugang zu Xbox Live von dieser Konsole.
+ltige Xbox Live-Mitgliedschaft haben, um auf Xbox Live zu spielen.\0
+Entscheiden Sie, ob neue Xbox Live-Mitgliedschaften von dieser Konsole aus erstellt werden k
+Zugang zu Xbox Live
+Xbox Live-Mitgliedschaftserstellung
+Zugang zu Xbox Live
+nnen Sie keine Verbindung mit Xbox Live aufbauen, um zu spielen, zu kommunizieren oder Inhalte herunterzuladen.
+ltige Xbox Live-Mitgliedschaft haben, um online zu spielen.
+Xbox Live-Mitgliedschaftserstellung
+nnen Sie Xbox Live-Mitgliedschaften erst erstellen, nachdem die Beschr
+Zugang zu Xbox Live
+Xbox Live-Mitgliedschaftserstellung
+Ihre Xbox Live Vision-Kamera wird nicht erkannt. Stellen Sie sicher, dass Ihre Kamera direkt an die Konsole angeschlossen ist.
+Wenn sowohl Ihre Xbox Live Vision-Kamera als auch der Kinect Sensor angeschlossen und eingeschaltet sind, ist Ihre Vision-Kamera nur f
+r Xbox Live Vision-Spiele aktiv. Um Vision in der Xbox Steuerung zu verwenden, schalten Sie den Kinect Sensor aus oder trennen Sie die Verbindung zu ihm.
+hlen Sie Ihren Haupt-TV-Anbieter. Dies ist Ihr Live-TV-Anbieter, den Sie im TV-Hub sehen.
+ber Live-TV auf der Xbox 360 zu erfahren, gehen Sie zum TV-Hub in der Xbox Steuerung.
+Xbox Live Vision
+ten.\0Verbinden Sie sich mit Xbox Live oder Ihrem Heimnetzwerk. Richten Sie Netzwerkverbindungen ein und testen Sie Netzwerkeinstellungen.\0Verwalten Sie Ihre Verbindung zu einem "Windows Media Center"-PC.
+r Ihre Xbox Live Vision-Kamera.\0Starten Sie das urspr
+Activa los controles de contenido para cambiar las clasificaciones y las restricciones de contenido, administrar el acceso a Xbox Live y utilizar el temporizador parental.
+Acceso a Xbox Live
+n en Xbox Live.
+n en Xbox Live para aplicar el cambio.
+s conectado a Xbox Live, el reloj se ajusta autom
+Acceso a Xbox Live
+Suscripciones a Xbox Live
+Administra el acceso a Xbox Live desde esta consola.
+lida a Xbox Live para jugar en Xbox Live.\0
+Decide si pueden crearse nuevas suscripciones a Xbox Live desde esta consola.\0Cambia tu c
+Acceso a Xbox Live
+n a Xbox Live
+Acceso a Xbox Live
+s conectarte a Xbox Live para jugar a juegos, comunicarte o descargar contenido.
+lida a Xbox Live.
+n a Xbox Live
+s crear suscripciones a Xbox Live hasta que se elimine la restricci
+Acceso a Xbox Live
+n a Xbox Live
+mara Xbox Live Vision. Comprueba que est
+mara Xbox Live Vision y el sensor de Kinect est
+ activa para juegos Xbox Live Vision. Para usar Vision en la Interfaz Xbox, apaga o desenchufa el sensor de Kinect.
+Xbox Live Vision
+ctate a Xbox Live o a tu red dom
+mara Xbox Live Vision.\0Inicia la configuraci
+s au Xbox Live et utiliser le Minuteur parental.
+s au Xbox Live
+afficher les titres de tous les jeux. Connectez-vous au Xbox Live.
+ Xbox Live.
+gle automatiquement lorsque vous vous connectez au Xbox Live et il vous est impossible de la modifier.
+der au Xbox Live
+er abonnement Xbox Live
+s au Xbox Live
+un abonnement au Xbox Live valide pour jouer sur le Xbox Live.\0
+cifiez si de nouveaux abonnements au Xbox Live peuvent
+s au Xbox Live
+er abonnement Xbox Live
+s au Xbox Live
+, vous ne pourrez pas vous connecter au Xbox Live pour jouer, communiquer ou t
+un abonnement au Xbox Live valide pour pouvoir jouer en ligne.
+er abonnement Xbox Live
+er de nouveaux abonnements au Xbox Live tant que la restriction sera activ
+s au Xbox Live
+er abonnement Xbox Live
+ra Xbox Live Vision. V
+ra Xbox Live Vision et le capteur Kinect sont tous les deux branch
+ra Vision est uniquement active pour les jeux Xbox Live Vision. Pour l
+Xbox Live Vision
+riques de stockage Xbox 360.\0Connectez-vous au Xbox Live ou
+ra Xbox Live Vision.\0D
+I film classificati R18+ sono limitati a persone di almeno 18 anni. Contenuto di livello elevato.
+ non inferiore ai 14 anni. Possono contenere elevati livelli di violenza e volgarit
+ non inferiore a 8 anni. Sono consentiti bassi livelli di horror e violenza fantastica. Non sono presenti volgarit
+ consentito l'uso occasionale di un linguaggio "discriminatorio e socialmente offensivo" nel contesto della storia. Non sono consentiti contenuti sessuali di alcun livello.
+ compresa tra 2 e 7 anni. Non sono consentiti contenuti volgari o sessuali di alcun livello. Violenza minima o assente.
+I giochi CERO A sono adatti a tutti. Questa classificazione equivale al precedente livello CERO All.
+ non inferiore ai 12 anni. Questa classificazione equivale al precedente livello CERO 12.
+ non inferiore ai 15 anni. Questa classificazione equivale al precedente livello CERO 15.
+ non inferiore ai 17 anni. Questa classificazione equivale al precedente livello CERO 18.
+. I giochi in questa categoria potrebbero contenere un livello maggiore di violenza moderata, in animazioni o simulata, linguaggio moderatamente forte e/o tematiche minimamente allusive.
+ essere adatto a partire dai 6 anni. I giochi in questa categoria possono contenere un livello minimo di violenza moderata, in animazioni o simulata, e/o in rari casi utilizzare un linguaggio moderatamente forte.
+ volgare, un livello minimo di sangue e/o in rari casi utilizzare un linguaggio forte.
+Attiva i controlli contenuto per modificare le classificazioni e le limitazioni sul contenuto, gestire l'accesso a Xbox Live e utilizzare il Timer familiare.
+Accesso a Xbox Live
+Impossibile elencare i titoli di tutti i giochi. Accedi a Xbox Live.
+Livelli di riferimento
+Livello del nero
+Regola l'intervallo del livello di nero della console in modo che corrisponda a quello della TV. Ci
+ possibile eseguire solo giochi con livello di classificazione non superiore a quello selezionato.
+Accedi a Xbox Live affinch
+Una volta connesso a Xbox Live, l'orologio viene impostato automaticamente e non pu
+Livelli di riferimento
+Regola l'intervallo del livello di riferimento della console in modo che corrisponda a quello della TV. Questa impostazione influenza i giochi e i filmati.
+Accesso a Xbox Live
+Creazione abbonam. Xbox Live
+Gestisci l'accesso a Xbox Live da questa console.
+Per giocare su Xbox Live sono necessari un abbonamento Xbox Live valido e una connessione ad alta velocit
+ possibile creare nuovi abbonamenti Xbox Live da questa console.\0Modifica il codice d'accesso attuale delle impostazioni familiari, oltre alla domanda e alla risposta segreta.
+Accesso a Xbox Live
+Creazione abbonamento Xbox Live
+Accesso a Xbox Live
+ bloccato, non sarai in grado di collegarti a Xbox Live per riprodurre giochi, comunicare o scaricare contenuti.
+ e un abbonamento Xbox Live Gold valido.
+Creazione abbonamento Xbox Live
+ bloccata, non sarai in grado di creare nuovi abbonamenti Xbox Live fino alla rimozione della restrizione.
+Accesso a Xbox Live
+Creazione abbonamento Xbox Live
+Impossibile rilevare la videocamera Xbox Live Vision. Controlla che la videocamera sia collegata direttamente alla console.
+Se la videocamera Xbox Live Vision e il sensore Kinect sono entrambi collegati e accesi, la videocamera
+ attiva solo per i Xbox Games Live Vision. Per utilizzarla nella Xbox Dashboard, spegni o scollega il sensore Kinect.
+Xbox Live Vision
+ Consente di modificare le impostazioni della console Xbox 360, tra cui schermo, audio, lingua e telecomando.\0Puoi modificare le impostazioni del sensore Kinect e accedere al sintonizzatore Kinect per configurare la tua area di gioco e diagnosticare i problemi audio.\0Consente di spostare o eliminare i giochi salvati, i profili e altri elementi sulle periferiche di memorizzazione Xbox 360.\0Connettiti a Xbox Live o alla rete domestica. Puoi impostare connessioni di rete wireless e testare le impostazioni di rete.\0Puoi gestire la tua connessione a un PC Windows Media Center.
+Per connetterti a un PC che esegue software di condivisione dei file multimediali, apri il lettore video, il lettore musicale o il visualizzatore immagini. \0Consente di modificare il provider per la TV.\0Puoi modificare le impostazioni della videocamera Xbox Live Vision. \0Avvia la configurazione iniziale del sistema.
+ Xbox Live
+Xbox Live
+. Xbox Live
+ Xbox Live
+Xbox Live
+Xbox Live
+Xbox Live
+ Xbox Live
+Xbox Live
+ Xbox Live
+ Xbox Live
+Xbox Live
+Xbox Live
+Xbox Live
+ Xbox Live
+ Xbox Live
+Xbox Live
+ Xbox Live
+Xbox Live
+Xbox Live
+Xbox Live Vision
+Xbox Live Vision
+ Xbox Live Vision
+Xbox Live Vision
+ Xbox Live
+.\0Xbox Live Vision
+Xbox Live
+Xbox Live
+Xbox Live
+Xbox Live
+Xbox Live
+Xbox Live
+Xbox Live
+Xbox Live
+Xbox Live
+Xbox Live
+Xbox Live
+Xbox Live
+Xbox Live
+Xbox Live
+ Xbox Live
+ Xbox Live
+Xbox Live
+Xbox Live
+Xbox Live
+Xbox Live
+Xbox Live
+Xbox Live
+Xbox Live
+\0Xbox Live
+\0Xbox Live
+ugi Xbox Live i korzysta
+ugi Xbox Live
+udze Xbox Live.
+udze Xbox Live, aby zastosowa
+ Xbox Live, zegar ustawiany jest automatycznie i nie jest mo
+ugi Xbox Live
+. Xbox Live
+ugi Xbox Live.
+udze Xbox Live, wymagane jest szybkie po
+ne konto Xbox Live.\0
+udze Xbox Live.\0Zmie
+ugi Xbox Live
+. Xbox Live
+ugi Xbox Live
+ Xbox Live, aby gra
+udze Xbox Live, aby gra
+. Xbox Live
+udze Xbox Live a
+ugi Xbox Live
+. Xbox Live
+ kamery wideo Xbox Live Vision. Upewnij si
+ Xbox Live Vision i sensor Kinect, kamera Vision b
+dzie aktywna tylko w grach Xbox Live Vision. Aby u
+Kamera wideo Xbox Live Vision
+Xbox Live Vision
+ugi Xbox Live lub sieci domowej. Skonfiguruj po
+ ustawienia kamery Xbox Live Vision.\0Uruchom konfiguracj
+do, gerenciar o acesso ao Xbox Live e usar o Timer da Fam
+Acesso ao Xbox Live
+o consegue mostrar todos os jogos. Entre no Xbox Live.
+Entre no Xbox Live para ativar essa configura
+ conectado ao Xbox Live, o rel
+Acessar Xbox Live
+Criar Assinatura do Xbox Live
+Gerencie o acesso do seu Xbox Live neste console.
+o de banda larga e uma assinatura Xbox Live v
+lida para jogar no Xbox Live.\0
+vel criar novas assinaturas do Xbox Live neste console.\0Altere sua senha atual do Controle de Conte
+Acesso ao Xbox Live
+o de Assinatura Xbox Live
+Acesso ao Xbox Live
+ se conectar ao Xbox Live para jogar, comunicar-se ou fazer download de conte
+o de alta velocidade e uma assinatura Xbox Live v
+o de Assinatura Xbox Live
+ criar novas assinaturas Xbox Live at
+Acesso ao Xbox Live
+o de Assinatura Xbox Live
+mera Xbox Live Vision. Verifique se a c
+mera Xbox Live Vision e o Sensor Kinect est
+ ativada apenas para jogos Xbox Live Vision. Para utilizar o Vision no Menu Xbox, desligue ou desconecte o Sensor Kinect.
+Xbox Live Vision
+udio.\0Mover ou excluir jogos salvos, perfis e outros itens nos dispositivos de armazenamento do Xbox 360.\0Conectar-se ao Xbox Live ou
+mera Xbox Live Vision.\0Iniciar a configura
+ Xbox Live
+ Xbox Live
+ Xbox Live.
+ Xbox Live,
+ Xbox Live
+ Xbox Live
+ Xbox Live
+ Xbox Live,
+  Xbox Live.\0
+ Xbox Live
+ Xbox Live
+ Xbox Live
+ Xbox Live
+ Xbox Live,
+ Xbox Live.
+ Xbox Live
+ Xbox Live,
+ Xbox Live
+ Xbox Live
+ Xbox Live Vision.
+ Xbox Live Vision
+ Xbox Live Vision.
+ Xbox Live Vision
+ Xbox Live Vision
+ Xbox Live
+ Xbox Live Vision.\0
+ Xbox Live
+Xbox Live
+ Xbox Live
+ Xbox Live
+ Xbox Live
+Xbox Live
+ Xbox Live
+ Xbox Live
+ Xbox Live
+ Xbox Live
+ Xbox Live
+ Xbox Live
+ Xbox Live
+ Xbox Live
+ Xbox Live
+ Xbox Live
+ Xbox Live
+ Xbox Live
+ Xbox Live
+ Xbox Live
+ Xbox Live Vision
+ Xbox Live Vision
+ Xbox Live Vision
+Xbox Live Vision
+ Xbox Live
+ Xbox Live Vision
+xboxlive.png
+The item you are trying to download is subject to usage restrictions. You can use this item on the first Xbox 360 console you downloaded it to. Access to this item will also be granted to all users on this first console. If you transfer the item using a memory unit or other storage device, you will also be able to use it on other Xbox 360 consoles, but you'll need to sign in to Xbox Live with your Xbox Live account on that console before accessing the item.
+You can use this item on any Xbox 360 console you download it to, but only with the Xbox Live profile you download it with. Other users on the console will not be able to use the item. If you equip your avatar with the item, the item will also appear on your avatar on other consoles.
+You can use this item on any Xbox 360 console you download it to, but only with the Xbox Live profile you download it with. Other users on the console will not be able to use the item.
+Can't contact Xbox Live to accept the Services Agreement. You won't be able to use Xbox Live until you accept the Services Agreement. Please try again later.
+If you don't accept the Services Agreement, you won't be able to sign in to Xbox Live.
+You can't buy this membership while your current Xbox Live membership type remains active.
+Sorry, this Microsoft account is already associated with an Xbox Live profile. Try a different Microsoft account.
+Sorry, there's a problem with the birth date for your new Microsoft account. Go to https://account.live.com to verify your birth date.
+The region for this code doesn't match the region on your Xbox Live account. Some prepaid codes can be redeemed only in the country or region where they were purchased.
+Your Microsoft account needs a new password. To change it, go to https://account.live.com. After you've changed your password there, you'll be able to sign in here.
+Your Microsoft account needs a new password. To change it, go to https://account.live.com. After you've changed your password there, you'll be ready to sign in here.
+There's a problem with your account. To fix it, go to https://account.live.com.
+Xbox Live
+Xbox Live
+This item is currently available only to Xbox Live Gold members. Check again in a few days or upgrade to an Xbox Live Gold Membership.
+When you redeem your points, Xbox Live automatically uses the points with the nearest expiration date.
+After downloading content from Xbox Live, you'll find it in the following areas:
+There's a problem with your account. To fix the problem, go to https://account.live.com. Alternatively, choose a different payment method.
+You aren't signed in to Xbox Live. To continue, sign in again.
+ssen sich jedoch mit Ihrem Xbox Live-Konto auf dieser Konsole bei Xbox Live anmelden, bevor Sie auf den Inhalt zugreifen.
+nnen diesen Inhalt auf jeder Xbox 360 Konsole verwenden, auf den Sie ihn herunterladen, aber nur mit dem Xbox Live-Profil, das Sie zum Herunterladen verwendet haben. Andere Benutzer auf der Konsole k
+nnen diesen Inhalt auf jeder Xbox 360 Konsole verwenden, auf den Sie ihn herunterladen, aber nur mit dem Xbox Live-Profil, das Sie zum Herunterladen verwendet haben. Andere Benutzer auf der Konsole k
+Xbox Live kann nicht kontaktiert werden, um den Servicevertrag zu akzeptieren. Sie k
+nnen Xbox Live erst verwenden, nachdem Sie den Servicevertrag akzeptiert haben. Versuchen Sie es sp
+nnen Sie sich nicht bei Xbox Live anmelden.
+hrend Ihr aktueller Xbox Live-Mitgliedschaftstyp aktiv ist.
+Dieses Microsoft-Konto ist bereits mit einem Xbox Live-Profil verbunden. Bitte versuchen Sie ein anderes Microsoft-Konto.
+r Ihr neues Microsoft-Konto. Gehen Sie zu https://account.live.com, um Ihr Geburtsdatum zu best
+r diesen Code passt nicht zu der Region Ihres Xbox Live-Kontos. Einige vorausbezahlte Codes k
+ndern, gehen Sie zu https://account.live.com. Wenn Sie es dort ge
+ndern, gehen Sie zu https://account.live.com. Wenn Sie es dort ge
+Es gibt ein Problem mit Ihrem Konto. Um es zu beheben, gehen Sie zu https://account.live.com.
+r Xbox Live Gold-Mitglieder verf
+gbar. Schauen Sie in einigen Tagen erneut vorbei oder aktualisieren Sie auf eine Xbox Live Gold-Mitgliedschaft.
+sen, verwendet Xbox Live automatisch die Points mit dem am n
+Nach dem Herunterladen von Inhalten von Xbox Live finden Sie sie in den folgenden Bereichen:
+Mit Ihrem Konto ist ein Problem aufgetreten. Um das Problem zu beheben, besuchen Sie https://account.live.com. Sie k
+Sie sind nicht bei Xbox Live angemeldet. Melden Sie sich an, um fortzufahren.
+n en Xbox Live con tu cuenta de Xbox Live en esa consola para poder acceder a
+nicamente con el perfil Xbox Live con el que lo descargaste. El resto de los usuarios de la consola no podr
+Puedes usar este elemento en cualquier consola Xbox 360 donde lo descargues, pero solo con el perfil de Xbox Live con el que lo hayas descargado. Otros usuarios no podr
+n en Xbox Live para aceptar las Condiciones de uso. No podr
+s utilizar Xbox Live hasta que las aceptes. Vuelve a intentarlo m
+n en Xbox Live.
+n actual a Xbox Live.
+ asociada a un perfil Xbox Live. Int
+Lo sentimos, ha ocurrido un problema con la fecha de nacimiento de tu nueva cuenta Microsoft. Ve a https://account.live.com para comprobarla.
+n no coincide con el de tu cuenta Xbox Live. Algunos c
+a. Para cambiarla, ve a https://account.live.com. Despu
+a. Para cambiarla, ve a https://account.live.com. Despu
+Hay un problema con tu cuenta. Para corregirlo, ve a  https://account.live.com.
+Este elemento solo se encuentra disponible para los miembros de Xbox Live Gold. Vuelve a consultarlo dentro de unos d
+n a Xbox Live Gold.
+Cuando canjees tus puntos, Xbox Live utilizar
+s de descargar contenido de Xbox Live, lo encontrar
+Hay un problema con tu cuenta. Para arreglar el problema, ve a https://account.live.com o elige un m
+n en Xbox Live. Para continuar, vuelve a iniciar sesi
+autres consoles mais vous devrez vous connecter au Xbox Live avec votre compte Xbox Live avant d
+, mais uniquement avec le profil Xbox Live qui a servi au t
+, mais uniquement avec le profil Xbox Live qui a servi au t
+Impossible de contacter le Xbox Live pour accepter le Contrat de services. Vous ne pourrez pas utiliser le Xbox Live tant que vous n
+acceptez pas le Contrat de services, vous ne pourrez pas vous connecter au Xbox Live.
+abonnement Xbox Live actuel reste actif.
+ un profil Xbox Live. Essayez un autre compte Microsoft.
+me de date de naissance sur votre nouveau compte Microsoft. Rendez-vous sur https://account.live.com pour v
+ votre compte Xbox Live. Certains codes pr
+Vous devez choisir un nouveau mot de passe pour votre compte Microsoft. Pour le changer, rendez-vous sur https://account.live.com. Une fois que vous l
+Vous devez choisir un nouveau mot de passe pour votre compte Microsoft. Pour le changer, rendez-vous sur https://account.live.com. Une fois que vous l
+soudre, rendez-vous sur https://account.live.com.
+est actuellement disponible que pour les membres Xbox Live Gold. V
+ l'abonnement Xbox Live Gold.
+Jeu Xbox LIVE Arcade
+mo de jeu Xbox LIVE Arcade
+changez vos points, le Xbox Live utilise automatiquement les points dont la date d
+ depuis le Xbox Live, le contenu se trouve aux emplacements suivants :
+soudre, rendez-vous sur https://account.live.com ou choisissez un autre mode de paiement.
+ au Xbox Live. Pour continuer, reconnectez-vous.
+ consentito a tutti gli utenti su questa prima console. Se trasferisci l'elemento utilizzando una memory unit o un'altra periferica di memorizzazione, potrai utilizzarlo anche su un'altra console Xbox 360, ma dovrai accedere a Xbox Live con il tuo account Xbox Live su tale console prima di accedere all'elemento.
+Puoi utilizzare questo elemento su qualsiasi console Xbox 360 in cui lo scarichi, ma solo con il profilo Xbox Live che hai utilizzato per scaricarlo. Altri utenti della console non potranno utilizzare questo elemento. Se aggiungi l'elemento al tuo avatar, verr
+Puoi utilizzare questo elemento su qualsiasi console Xbox 360 in cui lo scarichi, ma solo con il profilo Xbox Live che hai utilizzato per scaricarlo. Altri utenti della console non potranno utilizzare questo elemento.
+Impossibile contattare Xbox Live per accettare il Contratto di Servizi. Non potrai utilizzare Xbox Live finch
+Se non accetterai il Contratto di Servizi non potrai accedere a Xbox Live.
+Impossibile acquistare questo abbonamento se il tuo attuale tipo di abbonamento a Xbox Live rimane attivo.
+ associato ad un account Xbox Live. Prova un altro account Microsoft.
+ l'ID di un bambino. Devi utilizzare un altro Windows Live ID di un adulto.
+ verificato un problema con la data di nascita per il tuo nuovo account Microsoft. Visita https://account.live.com per verificare la tua data di nascita.
+Il paese per questo codice non coincide con la regione del tuo abbonamento Xbox Live. Alcuni codici prepagati possono essere riscattati solo nel paese o regione d'origine.
+ essere modificata solo dal sito https://account.live.com, successivamente potrai modificarla in qualsiasi momento direttamente dalla console.
+ essere modificata solo dal sito https://account.live.com, successivamente potrai modificarla in qualsiasi momento direttamente dalla console.
+ verificato un problema con il tuo account. Per risolverlo, visita il sito http://account.live.com.
+ attualmente disponibile solo per gli abbonati Xbox Live Gold. Ricontrolla tra qualche giorno o passa ad un abbonamento Xbox Live Gold.
+Quando redimi i tuoi punti, Xbox Live utilizza automaticamente i punti con la data di scadenza pi
+I contenuti scaricati da Xbox Live sono disponibili nelle seguenti aree:
+ presente un problema con il tuo account. Per risolverlo, visita il sito https://account.live.com. Alternativamente scegli un metodo di pagamento diverso.
+Non hai eseguito l'accesso a Xbox Live. Per continuare, ripeti l'accesso.
+ Xbox Live
+ Xbox Live
+ Xbox Live
+Xbox Live
+ Xbox Live
+ Xbox Live
+ Xbox Live
+ Xbox Live
+. https://account.live.com
+ Xbox Live
+ https://account.live.com
+ https://account.live.com
+ http://account.live.com
+ Xbox Live
+ Xbox Live
+Xbox Live
+Xbox Live
+ https://account.live.com
+Xbox Live
+ Xbox Live
+ Xbox Live
+ Xbox Live
+ Xbox Live
+Xbox Live
+Xbox Live
+Xbox Live
+ Xbox Live
+ Xbox Live
+https://account.live.com
+ Xbox Live
+https://account.live.com
+https://account.live.com
+https://account.live.com
+ Xbox Live
+Xbox Live
+Xbox Live
+https://account.live.com
+Xbox Live
+ugi Xbox Live przy u
+yciu konta Xbox Live.
+ugi Xbox Live przy u
+ pobrany tylko z profilu Xbox Live. Inni u
+ Xbox Live w celu zaakceptowania Umowy dotycz
+ugi Xbox Live nie jest mo
+ugi Xbox Live.
+li aktualne konto Xbox Live pozostaje aktywne.
+udze Xbox Live. Spr
+ do witryny https://account.live.com, aby zweryfikowa
+ z regionem Twojego konta Xbox Live. Niekt
+ do witryny https://account.live.com. Po dokonaniu zmiany has
+ do witryny https://account.live.com. Po dokonaniu zmiany has
+ pod adres https://account.live.com.
+uga Xbox Live
+uga Xbox Live
+w kont Xbox Live Gold. Mo
+ konto do poziomu Xbox Live Gold.
+w Xbox Live automatycznie u
+ugi Xbox Live mo
+ https://account.live.com lub wybierz inn
+udze Xbox Live. Aby kontynuowa
+rio entrar com sua conta no Xbox Live no console antes de acessar o item.
+vel usar este item em qualquer console Xbox 360 no qual ele tenha sido baixado, mas somente com o perfil Xbox Live com o qual ele tenha sido baixado. Outros usu
+ pode usar este item em qualquer console Xbox 360 que ele tenha sido baixado, mas somente com o perfil do Xbox Live que voc
+vel entrar em contato com o Xbox Live para aceitar o Contrato de Servi
+ usar o Xbox Live depois que aceitar o Contrato de Servi
+ entrar no Xbox Live se n
+vel comprar esta assinatura enquanto seu tipo atual de assinatura do Xbox Live estiver ativo.
+ vinculada a um perfil Xbox Live. Tente outra conta Microsoft.
+ https://account.live.com para conferir a sua data de nascimento.
+o da sua conta Xbox Live. Alguns c
+ https://account.live.com. Ap
+ https://account.live.com. Ap
+ https://account.live.com.
+vel somente para membros do Xbox Live Gold. Confira novamente em alguns dias ou obtenha uma assinatura do Xbox Live Gold.
+Ao resgatar seus pontos, o Xbox Live usa automaticamente os que expiram na data mais pr
+do do Xbox Live, voc
+ https://account.live.com ou escolha outro m
+o entrou no Xbox Live. Para continuar, entre novamente.
+ Xbox Live
+ Xbox Live,
+ Xbox Live,
+ Xbox Live,
+ Xbox Live
+ Xbox Live
+ Xbox Live.
+ Xbox Live.
+ https://account.live.com
+ Xbox Live.
+ https://account.live.com.
+ https://account.live.com.
+ https://account.live.com.
+ Xbox Live Gold.
+ Xbox Live Gold.
+ Xbox Live
+ Xbox Live
+ https://account.live.com
+ Xbox Live.
+ Xbox Live
+ Xbox Live
+ Xbox Live
+ Xbox Live
+ Xbox Live
+ Xbox Live
+ Xbox Live
+ Xbox Live
+ https://account.live.com
+ Xbox Live
+ https://account.live.com
+ https://account.live.com
+ https://account.live.com
+ Xbox Live
+ Xbox Live
+, Xbox Live
+ Xbox Live
+ https://account.live.com
+ Xbox Live
+To play this game, sign in to Xbox Live.
+btn_LiveTile
+Melden Sie sich bei Xbox Live an, um dieses Spiel zu spielen.
+n en Xbox Live.
+Une Xbox One et un abonnement Xbox Live Gold actif sont requis.
+Pour jouer, connectez-vous au Xbox Live.
+Per utilizzare questo gioco, accedi a Xbox Live.
+ Xbox Live
+Xbox Live
+ugi Xbox Live.
+Para jogar este jogo, entre no Xbox Live.
+ Xbox Live.
+ Xbox Live
+OnLiveConnectionChanged
+signinState
+SignedInToLive
+OnLiveConnectionChanged
+common://LiveLogo.png
+_SigninChangedListener
+_SigninChangedListener
+OnLiveConnectionChanged
+GetLiveHiveValue
+GetLiveHiveValue
+!IsZuneMusicAvailableInLiveLocale
+!IsZuneVideoAvailableInLiveLocale
+_liveHiveUseFASTQueried
+!IsZuneMusicAvailableInLiveLocale
+!IsZuneVideoAvailableInLiveLocale
+GetOfflineLiveLocale
+GetOfflineLiveLocale
+GetLiveHiveValue
+GetLiveHiveValue
+_LiveHiveValuesLoaded
+LiveLocaleLcids
+X{LiveHive:LiveServiceUrl.commerce}/Users/Xuid({xuid})/Commerce/PaymentInstruments/Types
+http://xboxlive.com
+i{LiveHive:LiveServiceUrl.commerce}/Users/Xuid({xuid})/Commerce/PaymentInstruments/{typeId}/EncryptionKey
+http://xboxlive.com
+q{LiveHive:LiveServiceUrl.commerce}/Users/Xuid({xuid})/Commerce/PaymentInstruments/{typeId}/EncryptionCertificate
+http://xboxlive.com
+]{LiveHive:LiveServiceUrl.commerce}/Users/Xuid({xuid})/Commerce/PaymentInstruments/CreditCard
+http://xboxlive.com
+^{LiveHive:LiveServiceUrl.commerce}/Users/Xuid({xuid})/Commerce/PaymentInstruments/DirectDebit
+http://xboxlive.com
+Y{LiveHive:LiveServiceUrl.commerce}/Users/Xuid({xuid})/Commerce/PaymentInstruments/PayPal
+http://xboxlive.com
+R{LiveHive:LiveServiceUrl.commerce}/Users/Xuid({xuid})/Commerce/PaymentInstruments
+http://xboxlive.com
+h{LiveHive:LiveServiceUrl.commerce}/Users/Xuid({xuid})/Commerce/PaymentInstruments/{paymentInstrumentId}
+http://xboxlive.com
+s{LiveHive:LiveServiceUrl.commerce}/Users/Xuid({xuid})/Commerce/PaymentInstruments/CreditCard/{paymentInstrumentId}
+http://xboxlive.com
+t{LiveHive:LiveServiceUrl.commerce}/Users/Xuid({xuid})/Commerce/PaymentInstruments/DirectDebit/{paymentInstrumentId}
+http://xboxlive.com
+~{LiveHive:LiveServiceUrl.commerce}/Users/Xuid({xuid})/Commerce/PaymentInstruments/CreditCard/{paymentInstrumentId}/ReenterCVV
+http://xboxlive.com
+@{LiveHive:LiveServiceUrl.settings}/settings/strings/{ErrorCode}
+http://xboxlive.com
+w{LiveHive:LiveServiceUrl.settings}/settings/feature/titlesettings/settings/tierrequired?UnAuthClaim=TitleId({TitleId})
+http://xboxlive.com
+w{LiveHive:LiveServiceUrl.settings}/settings/feature/titlesettings/settings/tierrequired?UnAuthClaim=TitleId({TitleId})
+signinState
+SignedInToLive
+Dash.LiveSignup.lub
+isLiveRequest
+4Web Service requests cannot specify 'isLiveRequest'
+GetLiveHiveValue
+LiveServiceUrl.profile
+GetLiveHiveValue
+LiveServiceUrl.settings
+)_GetMostRestrictiveLiveRatingFromConsole
+OnLiveConnectionChanged
+ConsoleRatingToLiveRating
+'LiveParentalRatingToXboxParentalRating
+userLiveRating
+filterLiveLevel
+IsLiveRegionSameAsConsole
+)_GetMostRestrictiveLiveRatingFromConsole
+signinState
+@Dash.LiveSignup.lua
+Dash.LiveSignup
+LiveSignupCached
+PrepareLiveSignup
+LaunchLiveSignup
+LaunchLiveSignupWithWaitScene
+IsLiveSignupLaunching
+LiveSignupCached
+Title.NewLiveSignup.xex
+LiveSignupCached
+LiveSignupCached
+LaunchLiveSignup
+LaunchLiveSignup
+LiveConnectionChanged
+LiveConnectionChanged
+signinState
+GetLiveHiveValue
+GetLiveHiveValue
+LiveServiceUrl.xtitle
+8Could not retrieve LiveServiceUrl.xtitle from Live Hive
+,{LiveHive:EDSUriRoot}/media/{locale}/fields
+http://xboxlive.com
+5{LiveHive:EDSAnonymousUriRoot}/media/{locale}/fields
+3{LiveHive:EDSUriRoot}/media/{locale}/contentRating
+http://xboxlive.com
+<{LiveHive:EDSAnonymousUriRoot}/media/{locale}/contentRating
+OnLiveConnectionChanged
+LiveConnectionChanged
+OnLiveConnectionChanged
+signinState
+M{LiveHive:ListServiceUriRoot}/users/xuid({xuid})/lists/{listType}/{listName}
+http://xboxlive.com
+V{LiveHive:ListServiceUriRoot}/users/xuid({xuid})/lists/{listType}/{listName}/metadata
+http://xboxlive.com
+M{LiveHive:ListServiceUriRoot}/users/xuid({xuid})/lists/{listType}/{listName}
+http://xboxlive.com
+M{LiveHive:ListServiceUriRoot}/users/xuid({xuid})/lists/{listType}/{listName}
+http://xboxlive.com
+M{LiveHive:ListServiceUriRoot}/users/xuid({xuid})/lists/{listType}/{listName}
+http://xboxlive.com
+\{LiveHive:ListServiceUriRoot}/users/xuid({xuid})/lists/{listType}/{listName}/index({index})
+http://xboxlive.com
+X{LiveHive:ListServiceUriRoot}/users/xuid({xuid})/lists/{listType}/{listName}/DeleteList
+http://xboxlive.com
+signinState
+SignedInToLive
+OnLiveConnectionChanged
+SignedInToLive
+signinState
+IsConnectedToLive
+GetLiveHiveValue
+#Main: Xbox.System.GetLiveHiveValue
+Main: Bad Live Hive Value
+signinState
+LiveConnectionChanged
+SignedInToLive
+signinState
+OnLiveConnectionChanged
+signinState
+SignedInToLive
+OnLiveConnectionChanged
+MaxSigninUsers
+OnLiveConnectionChanged
+OnLiveConnectionChanged
+OnLiveConnectionChanged
+OnLiveConnectionChanged
+_OnLivePresenceChanged
+_OnSigninChanged
+LiveSignup
+PrepareLiveSignup
+SigninChanged
+_OnSigninChanged
+LivePresenceChanged
+_OnLivePresenceChanged
+Provider=SigninOnBoot;
+LiveSignup
+IsLiveSignupLaunching
+checkSignin
+GetLiveHiveValue
+LiveSignup
+LaunchLiveSignup
+PrepareLiveSignup
+LiveSignup
+LaunchLiveSignup
+OnLiveConnectionChanged
+Jeu Xbox LIVE Arcade
+Essai de jeu Xbox LIVE Arcade
+root@clumsy:~/xbox/$SystemUpdate#
